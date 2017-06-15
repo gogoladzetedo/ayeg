@@ -36,9 +36,25 @@ ul {
 	padding:0;
 }
 
+#wrapper-part-info2{
+	position:relative;
+	width:100%;
+	height:64px;
+	background-color:#FFFFFF;
+
+}
+
+#part-info2{
+	font-size: 12px;
+	margin: 10%;
+}
+
 /*-------------------------*/
 /* MAIN CLASS TRANSITION FOR EFFECT HOVER*/
 /*-------------------------*/
+.white1 {
+	height: 150px;
+}
 
 .object {
     transition: all 0.25s ease-in-out;
