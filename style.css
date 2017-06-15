@@ -288,7 +288,7 @@ body,html{
 
 .work figure {
     float:left;
-	width:calc(100% / 3 - 130px);
+	width:calc(100% / 3 - 100px);
     height:auto;
     line-height:auto;
     position: relative;
