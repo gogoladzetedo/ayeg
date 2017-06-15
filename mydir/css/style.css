@@ -80,7 +80,7 @@ body{
 #linechart {
     float:left;
     width: 600px;
-    height: 290px;
+    height: 350px;
     padding-left: 10px;
     margin: 10px 0 0 10px;
     border-left: 2px solid #B3E5FC;
@@ -92,7 +92,7 @@ body{
 #regionDescrip {
     float: left;
     width: 680px;
-    height: 250px;
+    height: 150px;
     padding-left: 20px;
     margin: 30px 0 0 10px;
     border-left: 2px solid #B3E5FC;
