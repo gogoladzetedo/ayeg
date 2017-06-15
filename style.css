@@ -16,28 +16,6 @@ Text Domain: platz
 /* SOCIAM FONT ICON */
 /*-------------------------*/
 
-
-
-@font-face {
-    font-family: 'socialicoregular';
-    src: url('font/socialico-webfont.eot');
-    src: url('font/socialico-webfont.eot?#iefix') format('embedded-opentype'),
-         url('font/socialico-webfont.woff2') format('woff2'),
-         url('font/socialico-webfont.woff') format('woff'),
-         url('font/socialico-webfont.ttf') format('truetype'),
-         url('font/socialico-webfont.svg#socialicoregular') format('svg');
-}
-
-@font-face {
-    font-family: 'socialico_plusregular';
-    src: url('font/socialico_plus-webfont.eot');
-    src: url('font/socialico_plus-webfont.eot?#iefix') format('embedded-opentype'),
-         url('font/socialico_plus-webfont.woff2') format('woff2'),
-         url('font/socialico_plus-webfont.woff') format('woff'),
-         url('font/socialico_plus-webfont.ttf') format('truetype'),
-         url('font/socialico_plus-webfont.svg#socialico_plusregular') format('svg');
-}
-
 /*-------------------------*/
 /* DON'T TOUCH  */
 /*-------------------------*/
@@ -169,7 +147,7 @@ body,html{
 .top-rated,.recent,.oldies{
 	float:left;
 	text-align:left;
-	font-family: 'Roboto',sans-serif;
+	font-family: "BPG Nino Elite Caps", sans-serif !important;
     font-size: 13px;
 	height:40px;
 	line-height:40px;
@@ -225,6 +203,7 @@ body,html{
 	float:left;
 	width:100%;
 	height:auto;
+	margin: 0 auto;
 }
 
 .container,.container-footer {
@@ -303,13 +282,13 @@ body,html{
     width:100%;
     height:auto;
 	background-color:#F4F4F4;
-	margin-top:25px;
+	margin: 0 auto;
 	opacity:0;
 }
 
 .work figure {
     float:left;
-	width:calc(100% / 3 - 80px);
+	width:calc(100% / 3 - 130px);
     height:auto;
     line-height:auto;
     position: relative;
@@ -365,7 +344,7 @@ body,html{
 }
 
 .work figure dl dt {
-	font-family: Helvetica, sans-serif;
+	font-family: "BPG Nino Elite Caps", sans-serif !important;
 	-webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 13px;
@@ -383,7 +362,7 @@ body,html{
 
 .work figure dl dd {
     margin-left: 0;
-	font-family: Helvetica, sans-serif;
+	font-family: "BPG Nino Elite Caps", sans-serif !important;
     font-size: 12px;
 	font-weight:400;
 	-webkit-font-smoothing: antialiased;
@@ -408,7 +387,7 @@ body,html{
 	width:calc(100% - 53px);
 	text-align:left;
 	line-height:44px;
-	font-family: Helvetica, sans-serif;
+	font-family: "BPG Nino Elite Caps", sans-serif !important;
 	-webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 15px;
@@ -439,7 +418,7 @@ body,html{
 .premium-ressource,.themes,.psd,.ai,.font,.photo{
 	position:relative;
 	text-align:center;
-	font-family: Helvetica, sans-serif;
+	font-family: "BPG Nino Elite Caps", sans-serif !important;
     font-size: 16px;
 	font-weight:400;
 	height:36px;
@@ -496,7 +475,7 @@ body,html{
 .thank-text{
 	float:left;
 	text-align:center;
-	font-family: 'Pacifico', cursive;
+	font-family: "BPG Nino Elite Caps", sans-serif !important;
     font-size: 70px;
 	height:190px;
 	line-height:190px;
@@ -552,7 +531,7 @@ body,html{
 	margin-left:20px;
 	width:80%;
 	text-align:left;
-	font-family: Helvetica, sans-serif;
+	font-family: "BPG Nino Elite Caps", sans-serif !important;
     font-size: 14px;
 	font-weight:400;
 	-webkit-font-smoothing: antialiased;
@@ -658,7 +637,7 @@ body,html{
 .copy-text{
 	float:left;
 	text-align:left;
-	font-family: Helvetica, sans-serif;
+	font-family: "BPG Nino Elite Caps", sans-serif !important;
     font-size: 15px;
 	height:70px;
 	line-height:70px;
@@ -680,7 +659,7 @@ body,html{
 	-webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 	text-align:right;
-	font-family:'socialicoregular';
+	font-family:"BPG Nino Elite Caps", sans-serif !important;
     font-size: 44px;
 	height:70px;
 	line-height:70px;
@@ -811,7 +790,7 @@ body,html{
 }
 .top-rated,.recent,.oldies{
 	text-align:center;
-	font-family: 'Roboto',sans-serif;
+	font-family: "BPG Nino Elite Caps", sans-serif !important;
     font-size: 13px;
 	height:40px;
 	line-height:40px;
@@ -844,5 +823,10 @@ body,html{
  
 @media only screen and (max-width: 320px) {
 
+}
+
+body{
+    font-family: "BPG Nino Elite Caps", sans-serif !important;
+    font-weight: bold !important;
 }
 
