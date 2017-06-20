@@ -1,0 +1,178 @@
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/heatmapstyle.css">
+
+<title>AYEG</title>
+
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://code.highcharts.com/maps/highmaps.js"></script>
+<script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+<link rel="stylesheet" href="css/bpg-nino-elite-caps.min.css">
+<!--<script src="https://code.highcharts.com/mapdata/countries/ge/ge-all.js"></script> -->
+<link rel="stylesheet" href="css/bpg-nino-elite-cond.min.css">
+<script src="data/ge-all.js"></script>
+<script src="data/dynamicData.js"></script>
+<!--<script type="text/javascript" src="script/script.js"></script> -->
+
+<!--  -->
+
+</head>
+
+<body>
+
+
+<nav class="nav">
+    <ul class="nav__list">
+    <!--    <li class="nav__list__item logo"><img src="logo.svg"></img></li> -->
+        <li class="nav__list__item"><a href="../index.html">მთავარი</a></li><!--
+        --><li class="nav__list__item"><a href="../datasets.html">მონაცემთა ბაზა</a></li>
+        <li class="nav__list__item"><a href="../index.html#main-container-footer">კონტაქტი</a></li>
+    </ul>
+</nav>
+<hr/>
+
+
+
+
+<div id="mainForm">
+   
+    <div id="wrapper2">
+        
+    </div>
+   
+    
+</div>
+<div id="fullText" style="float:left">
+    <p>
+       <h4>კონკურენტუნარიანობა.</h4><br>
+        ფერმერული საქმიანობის ეკონომიკური გაჯანსაღება, რესტრუქტურირება და მოდერნიზაცია. დივერსიფიკაციისა და  ეფექტიანი მიწოდების ჯაჭვის განვითარების მეშვეობით.
+    </p>
+</div>
+
+</div>
+
+<script type="text/javascript">
+
+
+
+
+
+
+// Create the chart
+var mychart = new Highcharts.chart('wrapper2', {
+
+    chart: {
+        type: 'heatmap',
+        marginTop: 40,
+        marginBottom: 80,
+        plotBorderWidth: 1
+    },
+
+
+    title: {
+        text: 'სამართალდარღვევები გარემოს დაცვის სფეროში'
+    },
+
+    xAxis: {
+        categories: ['ხე-ტყის უკანონო ჭრა'
+            , 'ხე-ტყის ტრანსპორტირების წესების დარღვევა'
+            , 'თევზჭერის წესების დარღვევა'
+            , 'ნადირობის წესების დარღვევა'
+            , 'სახერხი საამქროს ტექნიკური რეგლამენტის დარღვევა'
+            , 'წიაღის უკანონო მოპოვება'
+            , 'სასარგებლო წიაღისეულის მოპოვების ლიცენზიის პირობების დარღვევა'
+            , 'ატმოსფერული ჰაერის დაბინძურება'
+            , 'წყლის კანონმდებ-ლობის დარღვევა'
+            , 'მიწის კანონმდებ-ლობის დარღვევა'
+            , 'ნარჩენებით გარემოს დაბინძურება'
+            , 'გარემოზე ზემოქმედების ნებართვის პირობების დარღვევა'],
+        labels: {
+                style: {
+                    color: 'black',
+                    fontSize:'11px',
+                    height: '20px'
+                }
+            }
+    },
+
+    yAxis: {
+        categories: ['აჭარის არ'
+            , 'სამეგრელო-ზემო სვანეთი'
+            , 'გურია'
+            , 'იმერეთი'
+            , 'რაჭა-ლეჩხუმი და ქვემო სვანეთი'
+            , 'შიდა ქართლი'
+            , 'მცხეთა-მთიანეთი'
+            , 'კახეთი'
+            , 'ქვემო ქართლი'
+            , 'სამცხე-ჯავახეთი'],
+        title: null,
+        labels: {
+                style: {
+                    color: 'black',
+                    fontSize:'10px'
+                }
+            }
+    },
+
+    colorAxis: {
+        min: 0,
+        minColor: '#FFEBEE',
+        maxColor: '#F44336'//Highcharts.getOptions().colors[0]
+    },
+
+    legend: {
+        align: 'right',
+        layout: 'vertical',
+        margin: 0,
+        verticalAlign: 'top',
+        y: 25,
+        symbolHeight: 280,
+        enabled: false
+    },
+
+    tooltip: {
+        formatter: function () {
+            catDescrip = this.series.xAxis.categories[this.point.x];
+            regDescrip = this.series.yAxis.categories[this.point.y];
+           // regDescripLastChar = regDescrip.substring(regDescrip.length(regDescrip)-1, 1);
+            
+            value = this.point.value;
+            return '<span class = "hoverData">' + regDescrip + ' <br>' + catDescrip + '<br />' + 
+                value + ' შემთხვევა <br> </span>' + '';
+        }
+    },
+
+    series: [{
+        name: 'გარემო და კლიმატი',
+        borderWidth: 1,
+        borderColor: '#F44336',
+        data: 
+            [  [ 0 ,  0 ,  280 ] , [ 1 ,  0 ,  57 ] , [ 2 ,  0 ,  9 ] , [ 3 ,  0 ,  39 ] , [ 4 ,  0 ,  86 ] , [ 5 ,  0 ,  228 ] , [ 6 ,  0 ,  37 ] , [ 7 ,  0 ,  165 ] , [ 8 ,  0 ,  21 ] , [ 9 ,  0 ,  10 ] , [ 10 ,  0 ,  210 ] , [ 11 ,  0 ,  10 ] , [ 0 ,  1 ,  58 ] , [ 1 ,  1 ,  120 ] , [ 2 ,  1 ,  98 ] , [ 3 ,  1 ,  78 ] , [ 4 ,  1 ,  119 ] , [ 5 ,  1 ,  26 ] , [ 6 ,  1 ,  15 ] , [ 7 ,  1 ,  186 ] , [ 8 ,  1 ,  34 ] , [ 9 ,  1 ,  21 ] , [ 10 ,  1 ,  30 ] , [ 11 ,  1 ,  9 ] , [ 0 ,  2 ,  57 ] , [ 1 ,  2 ,  139 ] , [ 2 ,  2 ,  528 ] , [ 3 ,  2 ,  254 ] , [ 4 ,  2 ,  72 ] , [ 5 ,  2 ,  351 ] , [ 6 ,  2 ,  128 ] , [ 7 ,  2 ,  135 ] , [ 8 ,  2 ,  103 ] , [ 9 ,  2 ,  25 ] , [ 10 ,  2 ,  491 ] , [ 11 ,  2 ,  30 ] , [ 0 ,  3 ,  5 ] , [ 1 ,  3 ,  39 ] , [ 2 ,  3 ,  65 ] , [ 3 ,  3 ,  79 ] , [ 4 ,  3 ,  18 ] , [ 5 ,  3 ,  29 ] , [ 6 ,  3 ,  19 ] , [ 7 ,  3 ,  18 ] , [ 8 ,  3 ,  7 ] , [ 9 ,  3 ,  8 ] , [ 10 ,  3 ,  22 ] , [ 11 ,  3 ,  3 ] , [ 0 ,  4 ,  10 ] , [ 1 ,  4 ,  48 ] , [ 2 ,  4 ,  15 ] , [ 3 ,  4 ,  6 ] , [ 4 ,  4 ,  48 ] , [ 5 ,  4 ,  19 ] , [ 6 ,  4 ,  19 ] , [ 7 ,  4 ,  39 ] , [ 8 ,  4 ,  9 ] , [ 9 ,  4 ,  2 ] , [ 10 ,  4 ,  33 ] , [ 11 ,  4 ,  1 ] , [ 0 ,  5 ,  37 ] , [ 1 ,  5 ,  204 ] , [ 2 ,  5 ,  123 ] , [ 3 ,  5 ,  55 ] , [ 4 ,  5 ,  74 ] , [ 5 ,  5 ,  26 ] , [ 6 ,  5 ,  86 ] , [ 7 ,  5 ,  33 ] , [ 8 ,  5 ,  10 ] , [ 9 ,  5 ,  5 ] , [ 10 ,  5 ,  21 ] , [ 11 ,  5 ,  4 ] , [ 0 ,  6 ,  9 ] , [ 1 ,  6 ,  22 ] , [ 2 ,  6 ,  107 ] , [ 3 ,  6 ,  54 ] , [ 4 ,  6 ,  12 ] , [ 5 ,  6 ,  25 ] , [ 6 ,  6 ,  39 ] , [ 7 ,  6 ,  25 ] , [ 8 ,  6 ,  9 ] , [ 9 ,  6 ,  7 ] , [ 10 ,  6 ,  53 ] , [ 11 ,  6 ,  2 ] , [ 0 ,  7 ,  525 ] , [ 1 ,  7 ,  339 ] , [ 2 ,  7 ,  107 ] , [ 3 ,  7 ,  98 ] , [ 4 ,  7 ,  37 ] , [ 5 ,  7 ,  56 ] , [ 6 ,  7 ,  78 ] , [ 7 ,  7 ,  52 ] , [ 8 ,  7 ,  5 ] , [ 9 ,  7 ,  6 ] , [ 10 ,  7 ,  23 ] , [ 11 ,  7 ,  6 ] , [ 0 ,  8 ,  28 ] , [ 1 ,  8 ,  235 ] , [ 2 ,  8 ,  243 ] , [ 3 ,  8 ,  73 ] , [ 4 ,  8 ,  5 ] , [ 5 ,  8 ,  35 ] , [ 6 ,  8 ,  89 ] , [ 7 ,  8 ,  70 ] , [ 8 ,  8 ,  36 ] , [ 9 ,  8 ,  10 ] , [ 10 ,  8 ,  42 ] , [ 11 ,  8 ,  14 ] , [ 0 ,  9 ,  400 ] , [ 1 ,  9 ,  279 ] , [ 2 ,  9 ,  20 ] , [ 3 ,  9 ,  8 ] , [ 4 ,  9 ,  259 ] , [ 5 ,  9 ,  8 ] , [ 6 ,  9 ,  47 ] , [ 7 ,  9 ,  196 ] , [ 8 ,  9 ,  7 ] , [ 9 ,  9 ,  147 ] , [ 10 ,  9 ,  10 ] , [ 11 ,  9 ,  2 ] ],
+       
+        dataLabels: {
+            enabled: true,
+            color: '#000000'
+        }
+    }]
+
+});
+
+
+
+
+
+
+function scrollTo() {
+        $('html, body').animate({ scrollTop: $('#fullText').offset().top }, 'slow');
+        return false;
+    }
+
+</script>
+
+
+</body>
+

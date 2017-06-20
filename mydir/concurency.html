@@ -1,0 +1,1028 @@
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<title>AYEG</title>
+
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://code.highcharts.com/maps/highmaps.js"></script>
+<script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+<link rel="stylesheet" href="css/bpg-nino-elite-caps.min.css">
+<!--<script src="https://code.highcharts.com/mapdata/countries/ge/ge-all.js"></script> -->
+<link rel="stylesheet" href="css/bpg-nino-elite-cond.min.css">
+<script src="data/ge-all.js"></script>
+<script src="data/dynamicData.js"></script>
+<!--<script type="text/javascript" src="script/script.js"></script> -->
+
+<!--  -->
+
+</head>
+
+<body>
+
+
+<nav class="nav">
+    <ul class="nav__list">
+    <!--    <li class="nav__list__item logo"><img src="logo.svg"></img></li> -->
+        <li class="nav__list__item"><a href="../index.html">მთავარი</a></li><!--
+        --><li class="nav__list__item"><a href="../datasets.html">მონაცემთა ბაზა</a></li>
+        <li class="nav__list__item"><a href="../index.html#main-container-footer">კონტაქტი</a></li>
+    </ul>
+</nav>
+<hr/>
+
+
+
+
+<div id="mainForm">
+    <div id="uprow">
+        <div style="text-align: center" id="indexQuarter" onclick="fActCmpnyShare()">
+            <span> აქტიური კომპანიების წილი</span>
+            <div>
+                <img src="images/ActCmpnyShare.png" width="70px"/>
+                <p id = "indexCircle1" class = "indexCircle">0 %</p>
+                
+            </div>
+        </div>
+
+        <div id="indexQuarter" onclick="fEmpLevel()">
+            <span> დასაქმების დონე</span>
+            
+            <div>
+                <br />
+                <img src="images/EmpLevel3.png" width="70px"/>
+                <p id = "indexCircle2" class = "indexCircle">0 %</p>
+                
+            </div>
+        </div>
+
+
+        <div id="indexQuarter">
+            <span>თვითდასაქმების დონე </span>
+            
+           <div class="item indexCircle1" onclick="fSelfEmpLevel()">
+                <br />
+                <img src="images/SelfEmpLevel.png" width="70px"/>
+                <p id = "indexCircle3" class = "indexCircle">0 %</p>
+               
+            </div>
+        </div>
+        <div id="indexQuarter">
+            <span>შრომის ანაზღაურება </span>
+            
+            <div class="item indexCircle4" onclick="fWage()">
+                <br />
+                <img src="images/Wage.png" width="70px"/>
+                <h2 id = "indexCircle4">0 </h2>
+                
+            </div>
+        </div>
+    
+        <div id="indexQuarter" onclick="fProdPerActCmpny()">
+            <span>გამოშვება ერთ აქტიურ კომპანიაზე</span>
+            <div class="item indexCircle5">
+                <img src="images/PuiPerActCmpny.png" width="70px"/>
+                <h2 id = "indexCircle5" class="indexCircle5">0 %</h2>
+
+            </div>
+        </div>
+
+        <div id="indexQuarter">
+            <span>დასაქმებულთა რაოდ. ერთ აქტურ კომპანიაზე</span>
+            <div class="item indexCircle6" class="indexCircle6" onclick="fEmployesPerActCmpny()">
+                <img src="images/empLevelPerActCmpny.png" width="70px"/>
+                <h2 id = "indexCircle6">0</h2>
+
+            </div>
+        </div>
+        <div id="indexQuarter">
+            <span>ლარიზაცია</span>
+           <div class="item indexCircle7" onclick="fLarization()">
+                <br />
+                <img src="images/agro1.png" width="70px"/>
+                <h2 id = "indexCircle7">0 </h2>
+            </div>
+        </div>
+        <div id="indexQuarter">
+            <span>ვადაგადაცილებული სესხები</span>
+            <div class="item indexCircle8" onclick="fOverdueLoans()">
+                <img src="images/Overdue.png" width="70px"/>
+                <h2 id = "indexCircle8">0 </h2>
+            
+        </div>
+        </div>
+    </div>
+
+    <div id="blankspace" > </div>
+
+    <div id="wrapper">
+    <div id="container"></div>
+    <div id="additional">
+
+
+        <div id="linechart">
+            <p>
+                
+            </p>
+        </div>
+
+        <div id="regionDescrip">
+            <div  onclick="scrollTo()" style="cursor:pointer;">
+                <img src="images/downarrow.png" width="30px" style="cursor:pointer;" />&nbsp; ზოგადი ინფორმაცია რეგიონზე    
+            </div>
+            </div>
+
+    </div>
+    
+</div>
+<div id="fullText" style="float:left">
+    <p>
+       <h4>კონკურენტუნარიანობა.</h4><br>
+        ფერმერული საქმიანობის ეკონომიკური გაჯანსაღება, რესტრუქტურირება და მოდერნიზაცია. დივერსიფიკაციისა და  ეფექტიანი მიწოდების ჯაჭვის განვითარების მეშვეობით.
+    </p>
+</div>
+
+</div>
+
+<script type="text/javascript">
+
+	// Prepare demo data
+// Data is joined to map using value of 'hc-key' property by default.
+// See API docs for 'joinBy' for more info on linking data and map.
+
+var dataFile = [
+  {
+    "hc_key": "ge-ab",
+    "RegionName": "Abkhazia",
+    "RegionNameGeo": "აფხაზეთი",
+    "RegionCode": "AB",
+    "ProdPerActCmpny": 0,
+    "ProdPerActCmpnyData": "",
+    "ActCmpnyShare": 0,
+    "ActCmpnyShareData": "",
+    "EmployesPerActCmpny": 0,
+    "EmployesPerActCmpnyData": "",
+    "Wage": 0,
+    "WageData": "",
+    "EmpLevel": "",
+    "EmpLevelData": "",
+    "SelfEmpLevel": "",
+    "SelfEmpLevelData": "",
+    "Larization": 0,
+    "LarizationData": "",
+    "OverdueLoans": 0,
+    "OverdueLoansData": ""
+  },
+  {
+    "hc_key": "ge-aj",
+    "RegionName": "Ajaria",
+    "RegionNameGeo": "აჭარა",
+    "RegionCode": "AJ",
+    "ProdPerActCmpny": 156808.95,
+    "ProdPerActCmpnyData": ge_aj_production,
+    "ActCmpnyShare": 0.085,
+    "ActCmpnyShareData": "",
+    "EmployesPerActCmpny": 3.23,
+    "EmployesPerActCmpnyData": ge_aj_employment,
+    "Wage": 1002.35,
+    "WageData": ge_aj_salary,
+    "EmpLevel": 0.5986,
+    "EmpLevelData": ge_aj_employment_level,
+    "SelfEmpLevel": 0.3255,
+    "SelfEmpLevelData": ge_aj_self_employment,
+    "Larization": 0.2938,
+    "LarizationData": ge_aj_larization,
+    "OverdueLoans": 0.0161,
+    "OverdueLoansData": ge_aj_overdue
+  },
+  {
+    "hc_key": "ge-gu",
+    "RegionName": "Guria",
+    "RegionNameGeo": "გურია",
+    "RegionCode": "GU",
+    "ProdPerActCmpny": 53337.92,
+    "ProdPerActCmpnyData": ge_gu_production,
+    "ActCmpnyShare": 0.025,
+    "ActCmpnyShareData": "",
+    "EmployesPerActCmpny": 1.26,
+    "EmployesPerActCmpnyData": ge_gu_employment,
+    "Wage": 650.13,
+    "WageData": ge_gu_salary,
+    "EmpLevel": 0.7251,
+    "EmpLevelData": ge_gu_employment_level,
+    "SelfEmpLevel": 0.5522,
+    "SelfEmpLevelData": ge_gu_self_employment,
+    "Larization": 0.9039,
+    "LarizationData": ge_gu_larization,
+    "OverdueLoans": 0.0153,
+    "OverdueLoansData": ge_gu_overdue
+  },
+  {
+    "hc_key": "ge-sz",
+    "RegionName": "Tbilisi",
+    "RegionNameGeo": "თბილისი",
+    "RegionCode": "TB",
+    "ProdPerActCmpny": 285793.18,
+    "ProdPerActCmpnyData": ge_sz_production,
+    "ActCmpnyShare": 0.436,
+    "ActCmpnyShareData": "",
+    "EmployesPerActCmpny": 5.44,
+    "EmployesPerActCmpnyData": ge_sz_employment,
+    "Wage": 1108.66,
+    "WageData": ge_sz_salary,
+    "EmpLevel": 0.4423,
+    "EmpLevelData": ge_sz_employment_level,
+    "SelfEmpLevel": 0.0684,
+    "SelfEmpLevelData": ge_sz_self_employment,
+    "Larization": 0.3366,
+    "LarizationData": ge_sz_larization,
+    "OverdueLoans": 0.0201,
+    "OverdueLoansData": ge_sz_overdue
+  },
+  {
+    "hc_key": "ge-im",
+    "RegionName": "Imereti",
+    "RegionNameGeo": "იმერეთი",
+    "RegionCode": "IM",
+    "ProdPerActCmpny": 62030.67,
+    "ProdPerActCmpnyData": ge_im_production,
+    "ActCmpnyShare": 0.138,
+    "ActCmpnyShareData": "",
+    "EmployesPerActCmpny": 1.75,
+    "EmployesPerActCmpnyData": ge_im_employment,
+    "Wage": 676.27,
+    "WageData": ge_im_salary,
+    "EmpLevel": 0.6316,
+    "EmpLevelData": ge_im_employment_level,
+    "SelfEmpLevel": 0.4238,
+    "SelfEmpLevelData": ge_im_self_employment,
+    "Larization": 0.6026,
+    "LarizationData": ge_im_larization,
+    "OverdueLoans": 0.0093,
+    "OverdueLoansData": ge_im_overdue
+  },
+  {
+    "hc_key": "ge-ka",
+    "RegionName": "Kakheti",
+    "RegionNameGeo": "კახეთი",
+    "RegionCode": "KA",
+    "ProdPerActCmpny": 51827.64,
+    "ProdPerActCmpnyData": ge_ka_production,
+    "ActCmpnyShare": 0.063,
+    "ActCmpnyShareData": "",
+    "EmployesPerActCmpny": 1.58,
+    "EmployesPerActCmpnyData": ge_ka_employment,
+    "Wage": 606.85,
+    "WageData": ge_ka_salary,
+    "EmpLevel": 0.6898,
+    "EmpLevelData": ge_ka_employment_level,
+    "SelfEmpLevel": 0.5014,
+    "SelfEmpLevelData": ge_ka_self_employment,
+    "Larization": 0.7375,
+    "LarizationData": ge_ka_larization,
+    "OverdueLoans": 0.0193,
+    "OverdueLoansData": ge_ka_overdue
+  },
+  {
+    "hc_key": "ge-mm",
+    "RegionName": "Mtskheta-Mtianeti",
+    "RegionNameGeo": "მცხეთა-მთიანეთი",
+    "RegionCode": "MM",
+    "ProdPerActCmpny": 190262.8,
+    "ProdPerActCmpnyData": ge_mm_production,
+    "ActCmpnyShare": 0.018,
+    "ActCmpnyShareData": "",
+    "EmployesPerActCmpny": 2.71,
+    "EmployesPerActCmpnyData": ge_mm_employment,
+    "Wage": 968.61,
+    "WageData": ge_mm_salary,
+    "EmpLevel": 0.7251,
+    "EmpLevelData": ge_mm_employment_level,
+    "SelfEmpLevel": 0.5522,
+    "SelfEmpLevelData": ge_mm_self_employment,
+    "Larization": 0.9106,
+    "LarizationData": ge_mm_larization,
+    "OverdueLoans": 0.013,
+    "OverdueLoansData": ge_mm_overdue
+  },
+  {
+    "hc_key": "ge-rk",
+    "RegionName": "Racha-Lechkhumi-Kvemo Svaneti",
+    "RegionNameGeo": "რაჭა-ლეჩხუმი-ქვემო სვანეთი",
+    "RegionCode": "RK",
+    "ProdPerActCmpny": 24919.35,
+    "ProdPerActCmpnyData": ge_rk_production,
+    "ActCmpnyShare": 0.008,
+    "ActCmpnyShareData": "",
+    "EmployesPerActCmpny": 1,
+    "EmployesPerActCmpnyData": ge_rk_employment,
+    "Wage": 550.08,
+    "WageData": ge_rk_salary,
+    "EmpLevel": 0.6316,
+    "EmpLevelData": ge_rk_employment_level,
+    "SelfEmpLevel": 0.4238,
+    "SelfEmpLevelData": ge_rk_self_employment,
+    "Larization": 0.9512,
+    "LarizationData": ge_rk_larization,
+    "OverdueLoans": 0.0041,
+    "OverdueLoansData": ge_rk_overdue
+  },
+  {
+    "hc_key": "ge-sz",
+    "RegionName": "Samegrelo-Zemo Svaneti",
+    "RegionNameGeo": "სამეგრელო-ზემო სვანეთი",
+    "RegionCode": "SZ",
+    "ProdPerActCmpny": 89409.35,
+    "ProdPerActCmpnyData": ge_sz_production,
+    "ActCmpnyShare": 0.079,
+    "ActCmpnyShareData": "",
+    "EmployesPerActCmpny": 1.69,
+    "EmployesPerActCmpnyData": ge_sz_employment,
+    "Wage": 767.28,
+    "WageData": ge_sz_salary,
+    "EmpLevel": 0.6384,
+    "EmpLevelData": ge_sz_employment_level,
+    "SelfEmpLevel": 0.399,
+    "SelfEmpLevelData": ge_sz_self_employment,
+    "Larization": 0.6295,
+    "LarizationData": ge_sz_larization,
+    "OverdueLoans": 0.0081,
+    "OverdueLoansData": ge_sz_overdue
+  },
+  {
+    "hc_key": "ge-sj",
+    "RegionName": "Samtskhe-Javakheti",
+    "RegionNameGeo": "სამცხე-ჯავახეთი",
+    "RegionCode": "SJ",
+    "ProdPerActCmpny": 117194.39,
+    "ProdPerActCmpnyData": ge_sj_production,
+    "ActCmpnyShare": 0.029,
+    "ActCmpnyShareData": "",
+    "EmployesPerActCmpny": 1.56,
+    "EmployesPerActCmpnyData": ge_sj_employment,
+    "Wage": 707.28,
+    "WageData": ge_sj_salary,
+    "EmpLevel": 0.7251,
+    "EmpLevelData": ge_sj_employment_level,
+    "SelfEmpLevel": 0.5522,
+    "SelfEmpLevelData": ge_sj_self_employment,
+    "Larization": 0.6386,
+    "LarizationData": ge_sj_larization,
+    "OverdueLoans": 0.0084,
+    "OverdueLoansData": ge_sj_overdue
+  },
+  {
+    "hc_key": "ge-kk",
+    "RegionName": "Kvemo Kartli",
+    "RegionNameGeo": "ქვემო ქართლი",
+    "RegionCode": "KK",
+    "ProdPerActCmpny": 170560.61,
+    "ProdPerActCmpnyData": ge_kk_production,
+    "ActCmpnyShare": 0.075,
+    "ActCmpnyShareData": "",
+    "EmployesPerActCmpny": 2.5,
+    "EmployesPerActCmpnyData": ge_kk_employment,
+    "Wage": 861.86,
+    "WageData": ge_kk_salary,
+    "EmpLevel": 0.6378,
+    "EmpLevelData": ge_kk_employment_level,
+    "SelfEmpLevel": 0.4345,
+    "SelfEmpLevelData": ge_kk_self_employment,
+    "Larization": 0.6188,
+    "LarizationData": ge_kk_larization,
+    "OverdueLoans": 0.0209,
+    "OverdueLoansData": ge_kk_overdue
+  },
+  {
+    "hc_key": "ge-sd",
+    "RegionName": "Shida Kartli",
+    "RegionNameGeo": "შიდა ქართლი",
+    "RegionCode": "SD",
+    "ProdPerActCmpny": 77462.12,
+    "ProdPerActCmpnyData": ge_sd_production,
+    "ActCmpnyShare": 0.044,
+    "ActCmpnyShareData": "",
+    "EmployesPerActCmpny": 1.72,
+    "EmployesPerActCmpnyData": ge_sd_employment,
+    "Wage": 557.41,
+    "WageData": ge_sd_salary,
+    "EmpLevel": 0.6368,
+    "EmpLevelData": ge_sd_employment_level,
+    "SelfEmpLevel": 0.4395,
+    "SelfEmpLevelData": ge_sd_self_employment,
+    "Larization": 0.6493,
+    "LarizationData": ge_sd_larization,
+    "OverdueLoans": 0.0094,
+    "OverdueLoansData": ge_sd_overdue
+  }
+];
+
+
+var countries = {};
+var categories = [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017];
+var obj = {};
+for (var i in dataFile){
+    key = dataFile[i].hc_key;
+    countries[key] = dataFile[i];
+};
+
+dataFile = countries;
+
+ var mapData = dataFile;
+ var regionCode;
+    
+var years;
+var currentCat;
+var currentCatData;
+
+function callYears(regCode) {
+    RegionCode = regCode;    
+    if(currentCat == 'EmpLevel'){
+        years = dataFile[regionCode].EmpLevelData;
+
+    }
+    else if(currentCat == 'SelfEmpLevel'){
+        years = dataFile[regionCode].SelfEmpLevelData;
+
+    }
+    else if(currentCat == 'Wage'){
+        years = dataFile[regionCode].WageData;
+
+    }
+    else if(currentCat == 'ProdPerActCmpny'){
+        years = dataFile[regionCode].ProdPerActCmpnyData;
+
+    } 
+    else if(currentCat == 'EmployesPerActCmpny'){
+        years = dataFile[regionCode].EmployesPerActCmpnyData;
+
+    }
+    else if(currentCat == 'ActCmpnyShare'){
+        years = dataFile[regionCode].ActCmpnyShareData;
+
+    }
+    else if(currentCat == 'Larization'){
+        years = dataFile[regionCode].LarizationData;
+
+    }
+    else if(currentCat == 'OverdueLoans'){
+        years = dataFile[regionCode].OverdueLoansData;
+
+    }
+    
+    
+
+
+    console.log(currentCat);
+    mychart2.series[0].setData(years);
+
+}
+
+
+ Highcharts.wrap(Highcharts.Point.prototype, 'select', function (proceed) {
+
+        proceed.apply(this, Array.prototype.slice.call(arguments, 1));
+
+        var points = mychart.getSelectedPoints();
+
+       // console.log(points);
+        // This model works just fuckin perfectly!!!
+        regionCode = (points[0]['hc-key']);
+
+       // console.log(regionCode);
+
+        years = dataFile[regionCode].data;
+
+       // console.log(years);
+
+        callYears(regionCode);
+
+        if (points.length) {
+            if (points.length === 1) {
+          //      $('#info #flag').attr('class', 'flag ' + points[0].flag);
+             //   $('#info h2').html(points[0].name);
+                $('#info .subheader').html(points[0].name);      
+            //    $('#LoansbyRegionNC').html(mapData[regionCode].LoansbyRegionNC);
+
+                $('#indexCircle1').html(Math.round(mapData[regionCode].ActCmpnyShare * 100 * 10) / 10  + ' %');
+                $('#indexCircle2').html(Math.round(mapData[regionCode].EmpLevel * 100 * 10) / 10 + ' %');
+                $('#indexCircle3').html(Math.round(mapData[regionCode].SelfEmpLevel * 100 * 10) / 10 + ' %');
+                $('#indexCircle4').html(Math.round(mapData[regionCode].Wage ) + ' ლ');
+
+                $('#indexCircle5').html(Math.round(mapData[regionCode].ProdPerActCmpny ) + ' ლ');
+                $('#indexCircle6').html(Math.round(mapData[regionCode].EmployesPerActCmpny  * 100) / 100 + '');
+                $('#indexCircle7').html(Math.round(mapData[regionCode].Larization * 100 * 10) / 10 + ' %');
+                $('#indexCircle8').html(Math.round(mapData[regionCode].OverdueLoans * 100 * 100) / 100 + ' %');
+
+            } else {
+          //      $('#info #flag').attr('class', 'flag');
+                $('#info h2').html('რეგიონების შედარება');
+
+            }
+
+           
+         
+
+
+        // $('#info .subheader').html('<h4>რეგიონის ინდექსები</h4><small><em></em></small>');
+
+           
+            $.each(points, function (i) {
+                // Update
+               
+            });
+
+        } 
+    });
+
+
+
+var maxActCmpnyShare = 0;
+var minActCmpnyShare = 0;
+var ActCmpnyShare = [];
+function callActCmpnyShare() {
+	for (var i in dataFile) {   
+   var item = [
+        dataFile[i].hc_key,
+        dataFile[i].ActCmpnyShare
+    ];
+
+    ActCmpnyShare.push(item);
+    if(maxActCmpnyShare < dataFile[i].ActCmpnyShare) {
+    	maxActCmpnyShare = dataFile[i].ActCmpnyShare;
+    	};
+
+    if(minActCmpnyShare > dataFile[i].ActCmpnyShare) {
+    	minActCmpnyShare = dataFile[i].ActCmpnyShare;
+    	};
+	};
+
+//	console.log(LoansbyRegionNC);
+};
+
+
+
+var maxEmpLevel = 0;
+var minEmpLevel = 0;
+var EmpLevel = [];
+function callEmpLevel() {
+	for (var i in dataFile) {   
+   var item = [
+        dataFile[i].hc_key,
+        dataFile[i].EmpLevel
+    ];
+    EmpLevel.push(item);
+
+     if(maxEmpLevel < dataFile[i].EmpLevel) {
+    	maxEmpLevel = dataFile[i].EmpLevel;
+    	};
+
+    if(minEmpLevel > dataFile[i].EmpLevel & dataFile[i].EmpLevel != 0) {
+    	minEmpLevel = dataFile[i].EmpLevel;
+    	};
+	};
+};
+
+
+
+
+var maxSelfEmpLevel = 0;
+var minSelfEmpLevel = 0;
+var SelfEmpLevel = [];
+function callSelfEmpLevel() {
+	for (var i in dataFile) {   
+   var item = [
+        dataFile[i].hc_key,
+        dataFile[i].SelfEmpLevel
+    ];
+    SelfEmpLevel.push(item);
+
+    if(maxSelfEmpLevel < dataFile[i].SelfEmpLevel) {
+    	maxSelfEmpLevel = dataFile[i].SelfEmpLevel;
+    	};
+
+    if(minSelfEmpLevel > dataFile[i].SelfEmpLevel & dataFile[i].SelfEmpLevel != 0) {
+    	minSelfEmpLevel = dataFile[i].SelfEmpLevel;
+    	};
+};
+}
+
+
+
+var minWage = 0;
+var maxWage = 0;
+var Wage = [];
+function callWage(){
+	for (var i in dataFile) {   
+   var item = [
+        dataFile[i].hc_key,
+        dataFile[i].Wage
+    ];
+    Wage.push(item);
+
+    if(maxWage < dataFile[i].Wage) {
+    	maxWage = dataFile[i].Wage;
+    	};
+
+    if(minWage > dataFile[i].Wage & dataFile[i].Wage != 0) {
+    	minWage = dataFile[i].Wage;
+    	};
+};
+}
+
+
+
+var minProdPerActCmpny = 0;
+var maxProdPerActCmpny = 0;
+var ProdPerActCmpny = [];
+function callProdPerActCmpny(){
+    for (var i in dataFile) {   
+   var item = [
+        dataFile[i].hc_key,
+        dataFile[i].ProdPerActCmpny
+    ];
+    ProdPerActCmpny.push(item);
+
+    if(maxProdPerActCmpny < dataFile[i].ProdPerActCmpny) {
+        maxProdPerActCmpny = dataFile[i].ProdPerActCmpny;
+        };
+
+    if(minProdPerActCmpny > dataFile[i].ProdPerActCmpny & dataFile[i].ProdPerActCmpny != 0) {
+        minProdPerActCmpny = dataFile[i].ProdPerActCmpny;
+        };
+};
+}
+
+
+var minEmployesPerActCmpny = 0;
+var maxEmployesPerActCmpny = 0;
+var EmployesPerActCmpny = [];
+function callEmployesPerActCmpny(){
+    for (var i in dataFile) {   
+   var item = [
+        dataFile[i].hc_key,
+        dataFile[i].EmployesPerActCmpny
+    ];
+    EmployesPerActCmpny.push(item);
+
+    if(maxEmployesPerActCmpny < dataFile[i].EmployesPerActCmpny) {
+        maxEmployesPerActCmpny = dataFile[i].EmployesPerActCmpny;
+        };
+
+    if(minEmployesPerActCmpny > dataFile[i].EmployesPerActCmpny & dataFile[i].EmployesPerActCmpny != 0) {
+        minEmployesPerActCmpny = dataFile[i].EmployesPerActCmpny;
+        };
+};
+}
+
+
+var minLarization = 0;
+var maxLarization = 0;
+var Larization = [];
+function callLarization(){
+    for (var i in dataFile) {   
+   var item = [
+        dataFile[i].hc_key,
+        dataFile[i].Larization
+    ];
+    Larization.push(item);
+
+    if(maxLarization < dataFile[i].Larization) {
+        maxLarization = dataFile[i].Larization;
+        };
+
+    if(minLarization > dataFile[i].Larization & dataFile[i].Larization != 0) {
+        minLarization = dataFile[i].Larization;
+        };
+};
+}
+
+
+var minOverdueLoans = 0;
+var maxOverdueLoans = 0;
+var OverdueLoans = [];
+function callOverdueLoans(){
+    for (var i in dataFile) {   
+   var item = [
+        dataFile[i].hc_key,
+        dataFile[i].OverdueLoans
+    ];
+    OverdueLoans.push(item);
+
+    if(maxOverdueLoans < dataFile[i].OverdueLoans) {
+        maxOverdueLoans = dataFile[i].OverdueLoans;
+        };
+
+    if(minOverdueLoans > dataFile[i].OverdueLoans & dataFile[i].OverdueLoans != 0) {
+        minOverdueLoans = dataFile[i].OverdueLoans;
+        };
+};
+}
+
+
+
+
+
+// Create the chart
+var mychart = new Highcharts.mapChart('container', {
+    chart: {
+        map: 'countries/ge/ge-all',
+        backgroundColor: '#f4f8ff',         /* ფერი - რუკის ფონი*/
+        polar: true
+        
+    },
+
+    title: {
+        text: 'თვითდასაქმების დონე',
+        style:{
+	        	'font-family': 'BPG Nino Elite Caps'
+	        }
+    },
+    subtitle: {
+        text: 'რეგიონების მიხედვით'
+    },
+
+  //  subtitle: {
+ //       text: 'Development indicators by Georgian regions'
+//    },
+
+    mapNavigation: {
+        enabled: true,
+        buttonOptions: {
+            verticalAlign: 'bottom'
+        }
+    },
+
+    colorAxis: {
+        min: 5000,
+        max: 400000,
+        minColor: '#B3E5FC',            /* ფერი - რუკის რეგიონების ფერები - რანჟირება*/
+        maxColor: '#03A9F4'
+    },
+
+    legend: {
+            layout: 'vertical',
+            align: 'left',
+            verticalAlign: 'middle',
+           // floating: true,
+           // backgroundColor: '#FFFFFF'
+        },
+
+    series: [{
+  //      data: dataFile['ge-aj'],
+//        mapData: mapData,
+ //       joinBy: ['hc_key', 'hc_key'],
+        name: '',
+        allowPointSelect: true,
+        cursor: 'pointer',
+        states: {
+            hover: {
+                color: '#E3F2FD'                /* ფერი - რუკის რეგიონზე მაუსის მიტანისას მიღებული ფერი*/
+            },
+            select: {
+                    color: '#a4edba',           /* ფერი - რუკის რეგიონის არჩევისას მიღებული ფერი*/
+                    borderColor: 'black',
+                    dashStyle: 'shortdot'
+                }
+        },
+        borderColor: '#0288D1',                 /* ფერი - რუკის რეგიონების საზღვრების ფერი */
+        borderWidth: '0.5px',
+        
+        dataLabels: {
+           // enabled: true,
+            format: '{point.name}',
+            style:{
+	        	fontSize: '13px',
+	        	fontWeight: 'light'
+	        }
+        }
+    }]
+});
+
+
+
+var mychart2 = new Highcharts.chart('linechart', {
+    chart: {
+        type: 'column',
+        backgroundColor: '#f4f8ff'                          /* ფერი - დინამიკის ჩარტის ფონი */
+    },
+    title: {
+        text: 'დინამიკა'
+    },
+    xAxis: {
+        type: 'category',
+        labels: {
+      //      rotation: -45,
+            style: {
+                fontSize: '11px'
+            }
+        }
+    },
+    exporting: { enabled: false },
+
+    yAxis: {
+        min: 0,
+        title: {
+            text: ''
+        }
+    },
+    legend: {
+        enabled: false
+    },
+    tooltip: {
+        pointFormat: '<b>{point.y:.1f} </b>'
+    },
+    series: [{
+        name: 'ლარიზაცია',
+     //   data: [
+      //      ['2010', 23.7],
+       //     ['2012', 16.1],
+        //    ['2014', 19.5]
+     //   ],
+        color: '#FF5252',                               /* ფერი - დინამიკის ჩარტის სვეტების ფერი */
+        dataLabels: {
+            enabled: true,
+            rotation: -90,
+            color: 'black',
+            align: 'right',
+            format: '{point.y:.2f}', // one decimal
+            y: 10, // 10 pixels down from the top
+            style: {
+                fontSize: '11px'
+            }
+        }
+    }]
+});
+
+
+//console.log(mapData);
+
+//mychart2.series[0].setData();
+
+/*
+$( document ).ready(function() {
+    document.getElementById("Overdue").innerHTML = "";
+});
+*/
+
+
+
+function fActCmpnyShare() {
+	callActCmpnyShare();
+    mychart.series[0].setData(ActCmpnyShare);
+    mychart.colorAxis[0].update({
+	    max: maxActCmpnyShare,
+	    min: minActCmpnyShare
+	}); 
+
+    mychart.title.update({
+        text: 'აქტიური კომპანიების წილი'
+    });
+
+    currentCat = 'ActCmpnyShare';
+    callYears(regionCode);
+
+
+    document.getElementById('field_name').innerHTML = '<h4>აქტიური კომპანიების წილი</h4>'
+
+};
+
+function fEmpLevel() {
+	callEmpLevel();
+    mychart.series[0].setData(EmpLevel);
+    mychart.colorAxis[0].update({
+	    max: maxEmpLevel,
+	    min: minEmpLevel
+	}); 
+
+    mychart.title.update({
+        text: 'დასაქმების დონე'
+    });
+    
+    currentCat = 'EmpLevel';
+    callYears(regionCode);
+
+};
+
+
+function fSelfEmpLevel() {
+	callSelfEmpLevel();
+    mychart.series[0].setData(SelfEmpLevel);
+    mychart.colorAxis[0].update({
+	    max: maxSelfEmpLevel,
+	    min: minSelfEmpLevel
+	});
+
+    mychart.title.update({
+        text: 'თვითდასაქმების დონე'
+    });
+    
+    currentCat = 'SelfEmpLevel';
+    callYears(regionCode);
+
+};
+
+
+function fWage() {
+	callWage();
+    mychart.series[0].setData(Wage);
+    mychart.colorAxis[0].update({
+	    max: maxWage,
+	    min: minWage
+	});
+
+    mychart.title.update({
+        text: 'შრომის ანაზღაურება'
+    });
+    
+    currentCat = 'Wage';
+    callYears(regionCode);
+};
+
+function fProdPerActCmpny() {
+    callProdPerActCmpny();
+    mychart.series[0].setData(ProdPerActCmpny);
+    mychart.colorAxis[0].update({
+        max: maxProdPerActCmpny,
+        min: minProdPerActCmpny
+    });
+
+    mychart.title.update({
+        text: 'გამოშვება ერთ აქტიურ კომპანიაზე'
+    });
+    
+    currentCat = 'ProdPerActCmpny';
+    callYears(regionCode);
+
+};
+
+
+function fEmployesPerActCmpny() {
+
+// ამით უნდა დავხატოთ მეორე რუკა
+
+    callEmployesPerActCmpny();
+    mychart.series[0].setData(EmployesPerActCmpny);
+    mychart.colorAxis[0].update({
+        max: maxEmployesPerActCmpny,
+        min: minEmployesPerActCmpny
+    });
+
+    mychart.title.update({
+        text: 'დასაქმებულთა რაოდ. ერთ აქტიურ კომპანიაზე'
+    });
+    
+    currentCat = 'EmployesPerActCmpny';
+    callYears(regionCode);
+
+};
+
+
+function fLarization() {
+    callLarization();
+    mychart.series[0].setData(Larization);
+    mychart.colorAxis[0].update({
+        max: maxLarization,
+        min: minLarization
+    });
+
+    mychart.title.update({
+        text: 'ლარიზაცია'
+    });
+    
+    currentCat = 'Larization';
+    callYears(regionCode);
+
+};
+
+
+function fOverdueLoans() {
+    callOverdueLoans();
+    mychart.series[0].setData(OverdueLoans);
+    mychart.colorAxis[0].update({
+        max: maxOverdueLoans,
+        min: minOverdueLoans
+    });
+    mychart.title.update({
+        text: 'ვადაგადაცილებული სესხები'
+    });
+    
+    currentCat = 'OverdueLoans';
+    callYears(regionCode);
+
+};
+
+
+
+
+function scrollTo() {
+        $('html, body').animate({ scrollTop: $('#fullText').offset().top }, 'slow');
+        return false;
+    }
+
+</script>
+
+
+</body>
+
