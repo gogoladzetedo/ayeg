@@ -1,16 +1,17 @@
 # Data for the rural development.
-<h3>Project developed for Association of Young Economists in Georgia. <br>
-Draft version of the dashboards.</h3>
+**Project developed for Association of Young Economists in Georgia. <br>
+Draft version of the dashboards**
 
-<h4>Homepage:</h4>
+
+***Homepage***
 http://gogoladzetedo.github.io/ayeg
 
-<h4>Dashoboard 1:</h4>
-Competition: Dynamics of the Regions by years
+***Competition: Dynamics of the Regions by years***
+*Dashboard displays various economic indicators and their dynamics over the years for the regions of Georgia.*
 https://gogoladzetedo.github.io/ayeg/mydir/concurency.html
 
-<h4>Dashoboard 2:</h4>
-Violations in the field of environmental protection
+***Violations in the field of environmental protection***
+*Dashboard displays heatmap of environmental protection violation numbers for Georgian regions*
 https://gogoladzetedo.github.io/ayeg/mydir/heatmap.html
 
 
