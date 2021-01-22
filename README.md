@@ -10,7 +10,7 @@ http://gogoladzetedo.github.io/ayeg
 *Dashboard displays various economic indicators and their dynamics over the years for the regions of Georgia.*
 https://gogoladzetedo.github.io/ayeg/mydir/concurency.html
 
-![alt text](https://github.com/gogoladzetedo/ayeg/blob/master/Dashboard1.png?raw=true)
+![alt text](https://github.com/gogoladzetedo/ayeg/blob/master/dashboard1.png?raw=true)
 
 ***Violations in the field of environmental protection***
 *Dashboard displays heatmap of environmental protection violation numbers for Georgian regions*
