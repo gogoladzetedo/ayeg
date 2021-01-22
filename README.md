@@ -1,6 +1,8 @@
 # Data for the rural development.
-**Project developed for Association of Young Economists in Georgia. <br>
-Draft version of the dashboards**
+Project developed for Association of Young Economists in Georgia.
+*Draft version of the dashboards.*
+Webpage uses Highcharts.Js library for drawing map of Georgia and splitting it dynamicallt to the regions. Chart source data is dynamically changin based on the selection of the region on the map and top categories page.
+
 
 
 ***Homepage***
